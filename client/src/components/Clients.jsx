@@ -11,7 +11,7 @@ const Clients = () => {
 
 
   return (
-    <>
+    <div className="w-full flex justify-center items-center">
         { !loading && !error && (
             <table>
                 <thead>
@@ -29,7 +29,7 @@ const Clients = () => {
                 </tbody>
             </table>
         )}
-    </>
+    </div>
   );
 };
 

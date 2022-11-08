@@ -1,12 +1,44 @@
-import { Button, Modal, Label, TextInput, Checkbox } from "flowbite-react";
+import { useMutation } from "@apollo/client";
+import { Button, Modal, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
+import { ADD_CLIENT } from "../mutations/clientMutations";
+import { GET_CLIENTS } from "../queries/clientQueries";
 
 const AddClientModal = () => {
   const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [addClient] = useMutation(ADD_CLIENT, {
+    variables: { name, email, phone },
+    update(cache, { data: { addClient } }) {
+      const { clients } = cache.readQuery({ query: GET_CLIENTS });
+      cache.writeQuery({
+        query: GET_CLIENTS,
+        data: { clients: [...clients, addClient] },
+      });
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // TODO: improve validation later
+    if (name === "" || email === "" || phone === "") {
+      return alert("Please fill in all fields");
+    }
+
+    addClient(name, email, phone);
+
+    setName("");
+    setEmail("");
+    setPhone("");
+  };
 
   return (
-    <>
+    <div className="w-full flex justify-center items-center">
       <Button onClick={() => setShowModal(true)}>
         <div className="flex items-center justify-center w-full">
           <FaUser className="w-5 h-5" /> <p>Add Client</p>
@@ -22,52 +54,42 @@ const AddClientModal = () => {
         <Modal.Body>
           <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Sign in to our platform
+              Add Client
             </h3>
-            <div>
+            <form onSubmit={handleSubmit}>
               <div className="mb-2 block">
-                <Label htmlFor="email" value="Your email" />
+                <Label htmlFor="name" value="Name" />
+                <TextInput
+                  id="name"
+                  required={true}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
-              <TextInput
-                id="email"
-                placeholder="name@company.com"
-                required={true}
-              />
-            </div>
-            <div>
               <div className="mb-2 block">
-                <Label htmlFor="password" value="Your password" />
+                <Label htmlFor="email" value="Email" />
+                <TextInput
+                  id="email"
+                  required={true}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
-              <TextInput id="password" type="password" required={true} />
-            </div>
-            <div className="flex justify-between">
-              <div className="flex items-center gap-2">
-                <Checkbox id="remember" />
-                <Label htmlFor="remember">Remember me</Label>
+              <div className="mb-2 block">
+                <Label htmlFor="phone" value="Phone" />
+                <TextInput
+                  id="phone"
+                  required={true}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
-              <a
-                href="/modal"
-                className="text-sm text-blue-700 hover:underline dark:text-blue-500"
-              >
-                Lost Password?
-              </a>
-            </div>
-            <div className="w-full">
-              <Button>Log in to your account</Button>
-            </div>
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Not registered?{" "}
-              <a
-                href="/modal"
-                className="text-blue-700 hover:underline dark:text-blue-500"
-              >
-                Create account
-              </a>
-            </div>
+              <Button type="submit">Submit</Button>
+            </form>
           </div>
         </Modal.Body>
       </Modal>
-    </>
+    </div>
   );
 };
 

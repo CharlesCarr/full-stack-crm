@@ -31,10 +31,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Header />
-      <div className="w-full flex-col justify-center items-center p-10">
-        <AddClientModal />
-        <Clients />
+      <div className="w-full h-screen flex flex-col justify-start items-center">
+        <Header />
+        <div className="w-full flex-col justify-center items-center mt-10">
+          <AddClientModal />
+          <Clients />
+        </div>
       </div>
     </ApolloProvider>
   );
