@@ -1,14 +1,15 @@
 import { IoMdTrash } from "react-icons/io";
-// import { useMutation } from "@apollo/client";
-// import { DELETE_CLIENT } from "../mutations/clientMutations";
-// import { GET_CLIENTS } from "../queries/accountQueries";
+import { useMutation } from "@apollo/client";
+import { DELETE_ACCOUNT } from "../mutations/accountMutations";
+import { GET_ACCOUNTS } from "../queries/accountQueries";
 // import { GET_PROJECTS } from "../queries/projectQueries";
 
 const AccountRow = ({ account }) => {
-  // const [deleteClient] = useMutation(DELETE_CLIENT, {
-  //   variables: { id: client.id },
-  //   refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }, ],
-  // });
+  const [deleteAccount] = useMutation(DELETE_ACCOUNT, {
+    variables: { id: account.id },
+    //  { query: GET_PROSPECTS },
+    refetchQueries: [{ query: GET_ACCOUNTS }],
+  });
 
   return (
     <tr>
@@ -16,8 +17,7 @@ const AccountRow = ({ account }) => {
       <td>{account.size}</td>
       <td>{account.industry}</td>
       <td>
-        {/* onClick={deleteClient} */}
-        <button>
+        <button onClick={deleteAccount}>
           <IoMdTrash className="text-black" />
         </button>
       </td>

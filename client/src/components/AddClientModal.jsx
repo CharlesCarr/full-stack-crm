@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { Button, Modal, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { ADD_CLIENT } from "../mutations/clientMutations";
+import { ADD_CLIENT } from "../mutations/accountMutations";
 import { GET_CLIENTS } from "../queries/accountQueries";
 
 const AddClientModal = () => {
