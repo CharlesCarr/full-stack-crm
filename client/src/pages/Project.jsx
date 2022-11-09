@@ -3,6 +3,7 @@ import Spinner from '../components/Spinner';
 import { useQuery } from "@apollo/client";
 import { GET_PROJECT } from '../queries/projectQueries';
 import ClientInfo from '../components/ClientInfo';
+import DeleteProjectButton from '../components/DeleteProjectButton';
 
 const Project = () => {
     const { id } = useParams();
@@ -24,6 +25,8 @@ const Project = () => {
                 <p>{data.project.status}</p>
 
                 <ClientInfo client={data.project.client} />
+
+                <DeleteProjectButton projectId={data.project.id} />
             </div>
         )}
     </div>

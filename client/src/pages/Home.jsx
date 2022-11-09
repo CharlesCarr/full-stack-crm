@@ -7,8 +7,11 @@ import Projects from "../components/Projects";
 const Home = () => {
   return (
     <>
-      <AddClientModal />
-      <AddProjectModal />
+      <div className="w-full flex justify-center items-center">
+        <AddClientModal />
+        <AddProjectModal />
+      </div>
+
       <Projects />
       <Clients />
     </>

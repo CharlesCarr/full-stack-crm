@@ -106,10 +106,10 @@ const AddClientModal = () => {
                       onChange={(e) => setClientId(e.target.value)}
                     >
                       <option value="">Select Client</option>
-                      {data.client.map((client) => {
+                      {data.clients.map((client) => {
                         return (
                           <option key={client.id} value={client.id}>
-                            {client.nam}
+                            {client.name}
                           </option>
                         );
                       })}
