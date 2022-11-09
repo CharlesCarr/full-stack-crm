@@ -1,6 +1,8 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Header from "./components/Header";
 import Clients from "./components/Clients";
+import Projects from "./components/Projects";
 import AddClientModal from "./components/AddClientModal";
 
 // for getting rid of warning in console
@@ -31,13 +33,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="w-full h-screen flex flex-col justify-start items-center">
-        <Header />
-        <div className="w-full flex-col justify-center items-center mt-10">
-          <AddClientModal />
-          <Clients />
+      <Router>
+        <div className="w-full h-screen flex flex-col justify-start items-center">
+          <Header />
+          <div className="w-full flex-col justify-center items-center mt-10">
+            <AddClientModal />
+            <Projects />
+            <Clients />
+          </div>
         </div>
-      </div>
+      </Router>
     </ApolloProvider>
   );
 }
