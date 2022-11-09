@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Header from "./components/Header";
-import Clients from "./components/Clients";
-import Projects from "./components/Projects";
-import AddClientModal from "./components/AddClientModal";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Project from "./pages/Project";
 
 // for getting rid of warning in console
 const cache = new InMemoryCache({
@@ -37,9 +37,11 @@ function App() {
         <div className="w-full h-screen flex flex-col justify-start items-center">
           <Header />
           <div className="w-full flex-col justify-center items-center mt-10">
-            <AddClientModal />
-            <Projects />
-            <Clients />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path='/projects/:id' element={<Project />} />
+            </Routes>
           </div>
         </div>
       </Router>

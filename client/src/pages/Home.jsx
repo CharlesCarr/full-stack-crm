@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import AddClientModal from "../components/AddClientModal";
+import Clients from "../components/Clients";
+import Projects from "../components/Projects";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <AddClientModal />
+      <Projects />
+      <Clients />
+    </>
+  );
+};
 
-export default Home
+export default Home;
