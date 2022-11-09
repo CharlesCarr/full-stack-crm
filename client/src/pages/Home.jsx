@@ -1,19 +1,19 @@
 import React from "react";
-import AddClientModal from "../components/AddClientModal";
-import AddProjectModal from "../components/AddProjectModal";
-import Clients from "../components/Clients";
-import Projects from "../components/Projects";
+// import AddClientModal from "../components/AddClientModal";
+// import AddProjectModal from "../components/AddProjectModal";
+import Accounts from "../components/Accounts";
+// import Projects from "../components/Projects";
 
 const Home = () => {
   return (
     <>
       <div className="w-full flex justify-center items-center">
-        <AddClientModal />
-        <AddProjectModal />
+        {/* <AddClientModal /> */}
+        {/* <AddProjectModal /> */}
       </div>
 
-      <Projects />
-      <Clients />
+      {/* <Projects /> */}
+      <Accounts />
     </>
   );
 };

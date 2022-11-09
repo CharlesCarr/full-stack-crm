@@ -3,7 +3,7 @@ import { Button, Modal, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { ADD_CLIENT } from "../mutations/clientMutations";
-import { GET_CLIENTS } from "../queries/clientQueries";
+import { GET_CLIENTS } from "../queries/accountQueries";
 
 const AddClientModal = () => {
   const [showModal, setShowModal] = useState(false);
