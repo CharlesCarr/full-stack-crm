@@ -10,7 +10,6 @@ const Clients = () => {
   if (loading) return <Spinner />
   if (error) return <p>Something went wrong...</p>
 
-
   return (
     <div className="w-full flex justify-center items-center mt-10">
         { !loading && !error && (
@@ -19,6 +18,8 @@ const Clients = () => {
                         <Table.HeadCell>Name</Table.HeadCell>
                         <Table.HeadCell>Size</Table.HeadCell>
                         <Table.HeadCell>Industry</Table.HeadCell>
+                        <Table.HeadCell>Description</Table.HeadCell>
+                        <Table.HeadCell>Notes</Table.HeadCell>
                         <Table.HeadCell></Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">

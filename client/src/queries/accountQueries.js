@@ -13,4 +13,17 @@ const GET_ACCOUNTS = gql`
   }
 `;
 
-export { GET_ACCOUNTS };
+const GET_ACCOUNT = gql`
+  query getAccount($id: ID!) {
+    account(id: $id) {
+      id
+      name
+      size
+      industry
+      description
+      notes
+    }
+  }
+`;
+
+export { GET_ACCOUNTS, GET_ACCOUNT };
