@@ -1,65 +1,73 @@
 import { gql } from "@apollo/client";
 
-const ADD_PROJECT = gql`
-  mutation AddProject(
+const ADD_PROSPECT = gql`
+  mutation AddProspect(
     $name: String!
-    $description: String!
-    $status: ProjectStatus!
-    $clientId: ID!
+    $position: String!
+    $dmLevel: DMLevel!
+    $email: String!
+    $phone: String!
+    $accountId: ID!
   ) {
-    addProject(
+    addProspect(
       name: $name
-      description: $description
-      status: $status
-      clientId: $clientId
+      position: $position
+      dmLevel: $dmLevel
+      email: $email
+      phone: $phone
+      accountId: $accountId
     ) {
       id
       name
-      description
-      status
-      client {
+      position
+      dmLevel
+      email
+      phone
+      account {
         id
         name
-        email
-        phone
       }
     }
   }
 `;
 
-const DELETE_PROJECT = gql`
-  mutation DeleteProject($id: ID!) {
+const DELETE_PROSPECT = gql`
+  mutation DeleteProspect($id: ID!) {
     deleteProject(id: $id) {
       id
     }
   }
 `;
 
-const UPDATE_PROJECT = gql`
-  mutation UpdateProject(
+const UPDATE_PROSPECT = gql`
+  mutation UpdateProspect(
     $id: ID!
     $name: String!
-    $description: String!
-    $status: ProjectStatusUpdate!
+    $position: String!
+    $dmLevel: DMLevelUpdate!
+    $email: String!
+    $phone: String!
   ) {
     updateProject(
       id: $id
       name: $name
-      description: $description
-      status: $status
+      position: $position
+      dmLevel: $dmLevel
+      email: $email
+      phone: $phone
     ) {
       id
       name
-      description
-      status
-      client {
+      position
+      dmLevel
+      email
+      phone
+      account {
         id
         name
-        email
-        phone
       }
     }
   }
 `;
 
-export { ADD_PROJECT, DELETE_PROJECT, UPDATE_PROJECT };
+export { ADD_PROSPECT, DELETE_PROSPECT, UPDATE_PROSPECT };
