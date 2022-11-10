@@ -1,8 +1,7 @@
 import { useQuery } from "@apollo/client";
 import AccountRow from "./AccountRow";
 import { GET_ACCOUNTS } from "../queries/accountQueries";
-import Spinner from "./Spinner";
-import { Table } from "flowbite-react";
+import { Table, Spinner } from "flowbite-react";
 
 const Clients = () => {
   const { loading, error, data } = useQuery(GET_ACCOUNTS);
@@ -11,7 +10,7 @@ const Clients = () => {
   if (error) return <p>Something went wrong...</p>
 
   return (
-    <div className="w-full flex justify-center items-center mt-10">
+    <div className="w-full flex justify-center items-center">
         { !loading && !error && (
             <Table striped={true}>
                 <Table.Head>

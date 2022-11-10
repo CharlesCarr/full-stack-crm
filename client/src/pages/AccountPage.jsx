@@ -1,6 +1,8 @@
 import { useQuery } from "@apollo/client";
+import { Spinner } from "flowbite-react";
 import { useParams, useNavigate } from "react-router-dom";
-import Spinner from "../components/Spinner";
+import Account from "../components/Account";
+import AccountProspects from "../components/AccountProspects";
 import { GET_ACCOUNT } from "../queries/accountQueries";
 
 const AccountPage = () => {
@@ -9,12 +11,13 @@ const AccountPage = () => {
   console.log("id", id);
 
   const { loading, error, data } = useQuery(GET_ACCOUNT, { variables: { id } });
+  console.log(data);
 
   if (loading) return <Spinner />;
   if (error) return <p>Something went wrong...</p>;
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center relative">
+    <div className="w-full h-full flex justify-around items-center relative">
       {!loading && !error && (
         <>
           <button
@@ -23,11 +26,10 @@ const AccountPage = () => {
           >
             Back
           </button>
-          <h1>{`Account Name: ${data.account.name}`}</h1>
-          <p>{`Account Industry: ${data.account.industry}`}</p>
-          <p>{`Account Size: ${data.account.size}`}</p>
-          <p>{`Account Description: ${data.account.description}`}</p>
-          <p>{`Account Notes: ${data.account.notes}`}</p>
+
+          <Account data={data} />
+
+          <AccountProspects id={id} />
         </>
       )}
     </div>

@@ -9,9 +9,15 @@ const GET_PROSPECTS = gql`
       dmLevel
       email
       phone
+      account {
+        id
+        name
+      }
     }
   }
 `;
+
+// TO DO: CREATE GET_ACCOUNT_PROSPECTS query 
 
 const GET_PROSPECT = gql`
   query getProspect($id: ID!) {
