@@ -1,11 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PROSPECT } from "../queries/prospectQueries";
-import { Spinner } from "flowbite-react";
+import { Spinner, Table } from "flowbite-react";
 import ProspectInfo from "../components/ProspectInfo";
 import EditProspectModal from "../components/EditProspectModal";
 import { useState } from "react";
 import DeleteProspectButton from "../components/DeleteProspectButton";
+import ProspectInteractions from "../components/ProspectInteractions";
 // import ClientInfo from "../components/ClientInfo";
 // import DeleteProjectButton from "../components/DeleteProjectButton";
 // import EditProjectForm from "../components/EditProjectForm";
@@ -32,7 +33,7 @@ const ProspectPage = () => {
 
           <div className="w-full pt-6 flex flex-col items-center pb-6 border-b-2 border-black">
             <p className="font-bold">Interactions</p>
-            <p>(insert table here)</p>
+            <ProspectInteractions prospect={data.prospect} />
           </div>
 
           <div className="flex pt-6 justify-between items-end w-full">
