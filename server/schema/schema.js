@@ -148,8 +148,8 @@ const mutation = new GraphQLObjectType({
         return Account.findByIdAndRemove(args.id);
       },
     },
-     // Update an account
-     updateAccount: {
+    // Update an account
+    updateAccount: {
       type: AccountType,
       args: {
         id: { type: GraphQLNonNull(GraphQLID) },
@@ -189,6 +189,7 @@ const mutation = new GraphQLObjectType({
               influencer: { value: "Influencer" },
             },
           }),
+          defaultValue: "Decision Maker",
         },
         email: { type: GraphQLNonNull(GraphQLString) },
         phone: { type: GraphQLNonNull(GraphQLString) },

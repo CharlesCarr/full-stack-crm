@@ -1,15 +1,13 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PROSPECT } from "../queries/prospectQueries";
-import { Spinner, Table } from "flowbite-react";
+import { Spinner } from "flowbite-react";
 import ProspectInfo from "../components/ProspectInfo";
 import EditProspectModal from "../components/EditProspectModal";
 import { useState } from "react";
 import DeleteProspectButton from "../components/DeleteProspectButton";
 import ProspectInteractions from "../components/ProspectInteractions";
-// import ClientInfo from "../components/ClientInfo";
-// import DeleteProjectButton from "../components/DeleteProjectButton";
-// import EditProjectForm from "../components/EditProjectForm";
+import AddInteractionModal from "../components/AddInteractionModal";
 
 const ProspectPage = () => {
   const [showEditModal, setShowEditModal] = useState(false);
@@ -28,19 +26,30 @@ const ProspectPage = () => {
     <div className="w-3/4 h-2/3 border border-black flex flex-col justify-start items-center py-12 px-14">
       {!loading && !error && (
         <>
-          <EditProspectModal prospect={data} showEditModal={showEditModal} setShowEditModal={setShowEditModal}  />
+          <EditProspectModal
+            prospect={data}
+            showEditModal={showEditModal}
+            setShowEditModal={setShowEditModal}
+          />
           <ProspectInfo data={data} />
 
           <div className="w-full pt-6 flex flex-col items-center pb-6 border-b-2 border-black">
             <p className="font-bold">Interactions</p>
+            <AddInteractionModal />
             <ProspectInteractions prospect={data.prospect} />
           </div>
 
           <div className="flex pt-6 justify-between items-end w-full">
-            <button className="border border-black px-5 py-2 rounded-xl" onClick={() => setShowEditModal(true)}>
+            <button
+              className="border border-black px-5 py-2 rounded-xl"
+              onClick={() => setShowEditModal(true)}
+            >
               Edit Prospect
             </button>
-            <DeleteProspectButton prospectId={data.prospect.id} accountId={data.prospect.account.id} />
+            <DeleteProspectButton
+              prospectId={data.prospect.id}
+              accountId={data.prospect.account.id}
+            />
           </div>
         </>
       )}

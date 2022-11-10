@@ -1,22 +1,8 @@
 import { gql } from "@apollo/client";
 
 const ADD_PROSPECT = gql`
-  mutation AddProspect(
-    $name: String!
-    $position: String!
-    $dmLevel: DMLevel!
-    $email: String!
-    $phone: String!
-    $accountId: ID!
-  ) {
-    addProspect(
-      name: $name
-      position: $position
-      dmLevel: $dmLevel
-      email: $email
-      phone: $phone
-      accountId: $accountId
-    ) {
+  mutation addProspect($name: String!, $position: String!, $dmLevel: DMLevel!, $email: String!, $phone: String!, $accountId: ID!) {
+    addProspect(name: $name, position: $position, dmLevel: $dmLevel, email: $email, phone: $phone, accountId: $accountId) {
       id
       name
       position

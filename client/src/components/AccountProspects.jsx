@@ -1,8 +1,9 @@
 import { useQuery } from "@apollo/client";
-import { Spinner, Table } from "flowbite-react";
+import { Button, Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { GET_PROSPECTS } from "../queries/prospectQueries";
 import AccountProspectRow from "./AccountProspectRow";
+import AddProspectModal from "./AddProspectModal";
 
 const AccountProspects = ({ id }) => {
   const { loading, error, data } = useQuery(GET_PROSPECTS);
@@ -33,7 +34,9 @@ const AccountProspects = ({ id }) => {
       {!loading && !error && accountProspects && (
         <>
           <h1 className="font-bold mb-4 text-2xl">Prospects</h1>
-          <Table striped={true}>
+          {/* <Button className="mb-4">Add Prospect</Button> */}
+          <AddProspectModal />
+          {accountProspects.length > 0 ? (<Table striped={true}>
                 <Table.Head>
                         <Table.HeadCell>Name</Table.HeadCell>
                         <Table.HeadCell>Title</Table.HeadCell>
@@ -43,7 +46,9 @@ const AccountProspects = ({ id }) => {
                         <AccountProspectRow key={prospect.id} prospect={prospect} />
                     ))}
                 </Table.Body>
-            </Table>
+            </Table>) : (
+              <p className="text-sm font-light">No Prospects Added</p>
+            )}
         </>
       )}
     </div>
