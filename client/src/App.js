@@ -5,6 +5,7 @@ import AccountsPage from "./pages/AccountsPage";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import AccountPage from "./pages/AccountPage";
+import ProspectPage from "./pages/ProspectPage";
 
 // for getting rid of warning in console
 const cache = new InMemoryCache({
@@ -42,8 +43,8 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/accounts" element={<AccountsPage />} />
               <Route path="/accounts/:id" element={<AccountPage />} />
+              <Route path='/prospects/:id' element={<ProspectPage />} />
               <Route path="*" element={<NotFound />} />
-              {/* <Route path='/projects/:id' element={<Project />} /> */}
             </Routes>
           </div>
         </div>
