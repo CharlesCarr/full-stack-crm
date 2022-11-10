@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { DELETE_PROJECT } from "../mutations/projectMutations";
-import { GET_PROJECTS } from "../queries/projectQueries";
+import { GET_PROSPECTS } from "../queries/prospectQueries";
 import { useMutation } from "@apollo/client";
 
 const DeleteProjectButton = ({ projectId }) => {
@@ -10,7 +10,7 @@ const DeleteProjectButton = ({ projectId }) => {
   const [deleteProject] = useMutation(DELETE_PROJECT, {
     variables: { id: projectId },
     onCompleted: () => navigate("/"),
-    refetchQueries: [{ query: GET_PROJECTS }],
+    refetchQueries: [{ query: GET_PROSPECTS }],
   });
 
   return (

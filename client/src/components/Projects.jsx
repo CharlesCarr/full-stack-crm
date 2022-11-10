@@ -1,11 +1,11 @@
 import Spinner from "./Spinner";
 import { useQuery } from "@apollo/client";
-import { GET_PROJECTS } from "../queries/projectQueries";
+import { GET_PROSPECTS } from "../queries/prospectQueries";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
 
-    const { loading, error, data} = useQuery(GET_PROJECTS);
+    const { loading, error, data} = useQuery(GET_PROSPECTS);
 
     if (loading) return <Spinner />;
     if (error) return <p>Something went wrong...</p>;

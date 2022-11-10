@@ -2,6 +2,7 @@ import { IoMdTrash } from "react-icons/io";
 import { useMutation } from "@apollo/client";
 import { DELETE_ACCOUNT } from "../mutations/accountMutations";
 import { GET_ACCOUNTS } from "../queries/accountQueries";
+import { Table } from "flowbite-react";
 // import { GET_PROJECTS } from "../queries/projectQueries";
 
 const AccountRow = ({ account }) => {
@@ -12,16 +13,16 @@ const AccountRow = ({ account }) => {
   });
 
   return (
-    <tr>
-      <td>{account.name}</td>
-      <td>{account.size}</td>
-      <td>{account.industry}</td>
-      <td>
+    <Table.Row className="cursor-pointer">
+      <Table.Cell>{account.name}</Table.Cell>
+      <Table.Cell>{account.size}</Table.Cell>
+      <Table.Cell>{account.industry}</Table.Cell>
+      <Table.Cell>
         <button onClick={deleteAccount}>
           <IoMdTrash className="text-black" />
         </button>
-      </td>
-    </tr>
+      </Table.Cell>
+    </Table.Row>
   );
 };
 

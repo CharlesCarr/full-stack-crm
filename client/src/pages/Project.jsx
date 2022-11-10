@@ -1,14 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { useQuery } from "@apollo/client";
-import { GET_PROJECT } from "../queries/projectQueries";
+import { GET_PROSPECT } from "../queries/prospectQueries";
 import ClientInfo from "../components/ClientInfo";
 import DeleteProjectButton from "../components/DeleteProjectButton";
 import EditProjectForm from "../components/EditProjectForm";
 
 const Project = () => {
   const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_PROJECT, { variables: { id } });
+  const { loading, error, data } = useQuery(GET_PROSPECT, { variables: { id } });
 
   if (loading) return <Spinner />;
   if (error) return <p>Something went wrong...</p>;
