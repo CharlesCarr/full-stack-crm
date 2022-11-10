@@ -5,6 +5,7 @@ import { Spinner } from "flowbite-react";
 import ProspectInfo from "../components/ProspectInfo";
 import EditProspectModal from "../components/EditProspectModal";
 import { useState } from "react";
+import DeleteProspectButton from "../components/DeleteProspectButton";
 // import ClientInfo from "../components/ClientInfo";
 // import DeleteProjectButton from "../components/DeleteProjectButton";
 // import EditProjectForm from "../components/EditProjectForm";
@@ -38,23 +39,10 @@ const ProspectPage = () => {
             <button className="border border-black px-5 py-2 rounded-xl" onClick={() => setShowEditModal(true)}>
               Edit Prospect
             </button>
-            <button className="border border-black px-5 py-2 rounded-xl">
-              Delete Prospect
-            </button>
+            <DeleteProspectButton prospectId={data.prospect.id} accountId={data.prospect.account.id} />
           </div>
         </>
       )}
-
-      {/* <p>{data.project.description}</p>
-
-          <p>Project Status</p>
-          <p>{data.project.status}</p>
-
-          <ClientInfo client={data.project.client} />
-
-          <EditProjectForm project={data.project} />
-
-          <DeleteProjectButton projectId={data.project.id} /> */}
     </div>
   );
 };

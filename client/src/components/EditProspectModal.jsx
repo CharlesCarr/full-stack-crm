@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { GET_PROSPECT } from "../queries/prospectQueries";
 import { UPDATE_PROSPECT } from "../mutations/prospectMutations";
@@ -22,6 +22,8 @@ const EditProspectModal = ({ prospect, showEditModal, setShowEditModal }) => {
   const [email, setEmail] = useState(prospect.email);
   const [phone, setPhone] = useState(prospect.phone);
 
+  // const ref = useRef(null);
+
   const [updateProspect] = useMutation(UPDATE_PROSPECT, {
     variables: { id: prospect.id, name, position, dmLevel, email, phone },
     refetchQueries: [{ query: GET_PROSPECT, variables: { id: prospect.id } }],
@@ -34,7 +36,7 @@ const EditProspectModal = ({ prospect, showEditModal, setShowEditModal }) => {
       return alert("Please fill out all fields");
     }
 
-    updateProspect(name, position, dmLevel, email, phone);
+    // updateProspect(name, position, dmLevel, email, phone);
   };
 
   return (
@@ -55,6 +57,8 @@ const EditProspectModal = ({ prospect, showEditModal, setShowEditModal }) => {
               <Label htmlFor="name" value="Name" />
               <TextInput
                 id="name"
+                // ref={ref}
+                // defaultValue={name}
                 required={true}
                 value={name}
                 onChange={(e) => setName(e.target.value)}

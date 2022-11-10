@@ -33,7 +33,7 @@ const ADD_PROSPECT = gql`
 
 const DELETE_PROSPECT = gql`
   mutation DeleteProspect($id: ID!) {
-    deleteProject(id: $id) {
+    deleteProspect(id: $id) {
       id
     }
   }
