@@ -49,6 +49,8 @@ const AddProspectModal = () => {
       return alert("Please fill in all fields");
     }
 
+    // dmLevel is enum so needs to be "dm" or "influencer"
+    // TO DO: add this with a select / options
     addProspect(name, position, dmLevel, email, phone, accountId);
 
     setName("");

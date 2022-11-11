@@ -39,6 +39,7 @@ const AddAccountModal = () => {
     setIndustry("");
     setDescription("");
     setNotes("");
+    setShowModal(false);
   };
 
   return (
