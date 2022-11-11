@@ -3,7 +3,7 @@ import AccountRow from "./AccountRow";
 import { GET_ACCOUNTS } from "../queries/accountQueries";
 import { Table, Spinner } from "flowbite-react";
 
-const Clients = () => {
+const Accounts = () => {
   const { loading, error, data } = useQuery(GET_ACCOUNTS);
 
   if (loading) return <Spinner />
@@ -32,4 +32,4 @@ const Clients = () => {
   );
 };
 
-export default Clients;
+export default Accounts;

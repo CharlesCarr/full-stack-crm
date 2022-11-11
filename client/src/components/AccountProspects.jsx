@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { Button, Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { GET_PROSPECTS } from "../queries/prospectQueries";
-import AccountProspectRow from "./AccountProspectRow";
+import AccountProspectRow from "./ProspectRow";
 import AddProspectModal from "./AddProspectModal";
 
 const AccountProspects = ({ id }) => {
