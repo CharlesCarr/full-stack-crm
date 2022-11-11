@@ -1,13 +1,17 @@
 import { gql } from "@apollo/client";
 
 const ADD_INTERACTION = gql`
-  mutation addInteraction($date: String!, $type: String!, $notes: String!, $outcome: String!) {
-    addInteraction(date: $date, type: $type, notes: $notes, outcome: $outcome) {
+  mutation addInteraction($date: String!, $notes: String!, $type: Type!, $outcome: String!, $prospectId: ID!) {
+    addInteraction(date: $date, notes: $notes, type: $type, outcome: $outcome, prospectId: $prospectId) {
       id
       date
-      type
       notes
+      type
       outcome
+      prospect {
+        id
+        name
+      }
     }
   }
 `;
@@ -17,8 +21,8 @@ const DELETE_INTERACTION = gql`
     deleteInteraction(id: $id) {
       id
       date
-      type
       notes
+      type
       outcome
     }
   }

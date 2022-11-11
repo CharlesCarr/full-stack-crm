@@ -30,14 +30,6 @@ const AddProspectModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(e);
-    console.log(name);
-    console.log(position);
-    console.log(dmLevel);
-    console.log(email);
-    console.log(phone);
-    console.log(accountId, typeof accountId);
-
     // TODO: improve validation later
     if (
       name === "" ||

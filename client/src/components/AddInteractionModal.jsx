@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { GET_INTERACTIONS } from "../queries/interactionQueries";
 import { ADD_INTERACTION } from "../mutations/interactionMutations";
+import { useParams } from "react-router-dom";
 
 const AddInteractionModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -12,8 +13,10 @@ const AddInteractionModal = () => {
   const [notes, setNotes] = useState("");
   const [outcome, setOutcome] = useState("");
 
+  const { id: prospectId } = useParams();
+ 
   const [addInteraction] = useMutation(ADD_INTERACTION, {
-    variables: { date, type, notes, outcome },
+    variables: { date, notes, type, outcome, prospectId },
     update(cache, { data: { addInteraction } }) {
       const { interactions } = cache.readQuery({ query: GET_INTERACTIONS });
       cache.writeQuery({
@@ -31,7 +34,13 @@ const AddInteractionModal = () => {
       return alert("Please fill in all fields");
     }
 
-    addInteraction(date, type, notes, outcome);
+    console.log('date', date, typeof date);
+    console.log('notes', notes, typeof notes);
+    console.log('type', type, typeof type);
+    console.log('outcome', outcome, typeof outcome);
+    console.log('prospectId', prospectId, typeof prospectId);
+
+    addInteraction(date, notes, type, outcome, prospectId);
 
     setDate("");
     setType("");
