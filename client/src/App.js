@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import AccountPage from "./pages/AccountPage";
 import ProspectPage from "./pages/ProspectPage";
 import ProspectsPage from "./pages/ProspectsPage";
+import InteractionsPage from "./pages/InteractionsPage";
 import Navigation from "./components/Navigation";
 
 // for getting rid of warning in console
@@ -46,6 +47,7 @@ function App() {
               <Route path="/accounts/:id" element={<AccountPage />} />
               <Route path="/prospects" element={<ProspectsPage />} />
               <Route path='/prospects/:id' element={<ProspectPage />} />
+              <Route path="/interactions" element={<InteractionsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
