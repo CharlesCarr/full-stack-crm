@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { GET_PROSPECT } from "../queries/prospectQueries";
-import { UPDATE_PROSPECT } from "../mutations/prospectMutations";
+import { GET_PROSPECT } from "../../queries/prospectQueries";
+import { UPDATE_PROSPECT } from "../../mutations/prospectMutations";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 
 const EditProspectModal = ({ prospect, showEditModal, setShowEditModal }) => {

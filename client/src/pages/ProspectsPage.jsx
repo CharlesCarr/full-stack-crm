@@ -1,5 +1,5 @@
-import AddProspectModal from "../components/AddProspectModal";
-import Prospects from "../components/Prospects";
+import AddProspectModal from "../components/prospects/AddProspectModal";
+import Prospects from "../components/prospects/Prospects";
 
 const ProspectsPage = () => {
   return (

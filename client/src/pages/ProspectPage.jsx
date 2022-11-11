@@ -2,12 +2,12 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PROSPECT } from "../queries/prospectQueries";
 import { Spinner } from "flowbite-react";
-import ProspectInfo from "../components/ProspectInfo";
-import EditProspectModal from "../components/EditProspectModal";
+import ProspectInfo from "../components/prospects/ProspectInfo";
+import EditProspectModal from "../components/prospects/EditProspectModal";
 import { useState } from "react";
-import DeleteProspectButton from "../components/DeleteProspectButton";
-import ProspectInteractions from "../components/ProspectInteractions";
-import AddInteractionModal from "../components/AddInteractionModal";
+import DeleteProspectButton from "../components/prospects/DeleteProspectButton";
+import ProspectInteractions from "../components/prospects/ProspectInteractions";
+import AddInteractionModal from "../components/interactions/AddInteractionModal";
 
 const ProspectPage = () => {
   const [showEditModal, setShowEditModal] = useState(false);

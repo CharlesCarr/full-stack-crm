@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-import { DELETE_PROSPECT } from "../mutations/prospectMutations";
-import { GET_PROSPECTS } from "../queries/prospectQueries";
+import { DELETE_PROSPECT } from "../../mutations/prospectMutations";
+import { GET_PROSPECTS } from "../../queries/prospectQueries";
 import { useMutation } from "@apollo/client";
 
 const DeleteProspectButton = ({ prospectId, accountId }) => {

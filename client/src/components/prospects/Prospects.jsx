@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { GET_PROSPECTS } from "../queries/prospectQueries";
+import { GET_PROSPECTS } from "../../queries/prospectQueries";
 import { Table, Spinner } from "flowbite-react";
 import ProspectRow from "./ProspectRow";
 import { useState } from "react";

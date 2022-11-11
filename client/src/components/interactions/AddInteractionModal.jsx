@@ -2,8 +2,8 @@ import { useMutation } from "@apollo/client";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { GET_INTERACTIONS } from "../queries/interactionQueries";
-import { ADD_INTERACTION } from "../mutations/interactionMutations";
+import { GET_INTERACTIONS } from "../../queries/interactionQueries";
+import { ADD_INTERACTION } from "../../mutations/interactionMutations";
 import { useParams } from "react-router-dom";
 
 const AddInteractionModal = () => {

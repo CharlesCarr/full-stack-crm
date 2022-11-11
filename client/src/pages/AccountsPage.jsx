@@ -1,6 +1,5 @@
-import React from "react";
-import AddAccountModal from "../components/AddAccountModal";
-import Accounts from "../components/Accounts";
+import AddAccountModal from "../components/accounts/AddAccountModal";
+import Accounts from "../components/accounts/Accounts";
 
 const AccountsPage = () => {
   return (

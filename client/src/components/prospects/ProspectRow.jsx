@@ -2,8 +2,8 @@ import { useMutation } from "@apollo/client";
 import { Table } from "flowbite-react";
 import { IoMdTrash } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { DELETE_PROSPECT } from "../mutations/prospectMutations";
-import { GET_PROSPECTS } from "../queries/prospectQueries";
+import { DELETE_PROSPECT } from "../../mutations/prospectMutations";
+import { GET_PROSPECTS } from "../../queries/prospectQueries";
 
 const ProspectRow = ({ prospect, rowFull }) => {
   const navigate = useNavigate();

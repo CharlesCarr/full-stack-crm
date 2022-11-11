@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Navigation = () => {
   return (
     <div className="w-1/6 shadow-inner flex flex-col items-center justify-between py-10">
       <div>
@@ -26,4 +26,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navigation;

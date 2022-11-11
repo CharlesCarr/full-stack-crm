@@ -1,7 +1,7 @@
 import { IoMdTrash } from "react-icons/io";
 import { useMutation } from "@apollo/client";
-import { DELETE_ACCOUNT } from "../mutations/accountMutations";
-import { GET_ACCOUNTS } from "../queries/accountQueries";
+import { DELETE_ACCOUNT } from "../../mutations/accountMutations";
+import { GET_ACCOUNTS } from "../../queries/accountQueries";
 import { Table } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 

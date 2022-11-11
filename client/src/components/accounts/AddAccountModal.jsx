@@ -2,27 +2,24 @@ import { useMutation } from "@apollo/client";
 import { Button, Modal, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { useParams } from "react-router-dom";
-import { ADD_PROSPECT } from "../mutations/prospectMutations";
-import { GET_PROSPECTS } from "../queries/prospectQueries";
+import { ADD_ACCOUNT } from "../../mutations/accountMutations";
+import { GET_ACCOUNTS } from "../../queries/accountQueries";
 
-const AddProspectModal = () => {
+const AddAccountModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
-  const [dmLevel, setDmLevel] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [size, setSize] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [description, setDescription] = useState("");
+  const [notes, setNotes] = useState("");
 
-  const { id: accountId } = useParams();
-
-  const [addProspect] = useMutation(ADD_PROSPECT, {
-    variables: { name, position, dmLevel, email, phone, accountId },
-    update(cache, { data: { addProspect } }) {
-      const { prospects } = cache.readQuery({ query: GET_PROSPECTS });
+  const [addAccount] = useMutation(ADD_ACCOUNT, {
+    variables: { name, size, industry, description, notes },
+    update(cache, { data: { addAccount } }) {
+      const { accounts } = cache.readQuery({ query: GET_ACCOUNTS });
       cache.writeQuery({
-        query: GET_PROSPECTS,
-        data: { prospects: [...prospects, addProspect] },
+        query: GET_ACCOUNTS,
+        data: { accounts: [...accounts, addAccount] },
       });
     },
   });
@@ -31,34 +28,25 @@ const AddProspectModal = () => {
     e.preventDefault();
 
     // TODO: improve validation later
-    if (
-      name === "" ||
-      position === "" ||
-      dmLevel === "" ||
-      email === "" ||
-      phone === ""
-    ) {
+    if (name === "" || size === "" || industry === "" || description === "" || notes === "") {
       return alert("Please fill in all fields");
     }
 
-    // dmLevel is enum so needs to be "dm" or "influencer"
-    // TO DO: add this with a select / options
-    addProspect(name, position, dmLevel, email, phone, accountId);
+    addAccount(name, size, industry, description, notes);
 
     setName("");
-    setPosition("");
-    setDmLevel("");
-    setEmail("");
-    setPhone("");
-
+    setSize("");
+    setIndustry("");
+    setDescription("");
+    setNotes("");
     setShowModal(false);
   };
 
   return (
     <div className="w-full flex justify-center items-center">
-      <Button onClick={() => setShowModal(true)}>
+      <Button onClick={() => setShowModal(true)} className="mb-10">
         <div className="flex items-center justify-center w-full">
-          <FaUser className="w-5 h-5" /> <p>New Prospect</p>
+          <FaUser className="w-10 h-10" /> <p>Add Account</p>
         </div>
       </Button>
       <Modal
@@ -71,7 +59,7 @@ const AddProspectModal = () => {
         <Modal.Body>
           <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              New Prospect
+              Add Account
             </h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-2 block">
@@ -84,39 +72,39 @@ const AddProspectModal = () => {
                 />
               </div>
               <div className="mb-2 block">
-                <Label htmlFor="position" value="Position" />
+                <Label htmlFor="size" value="Size" />
                 <TextInput
-                  id="position"
+                  id="size"
                   required={true}
-                  value={position}
-                  onChange={(e) => setPosition(e.target.value)}
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
                 />
               </div>
               <div className="mb-2 block">
-                <Label htmlFor="dmLevel" value="DM Level" />
+                <Label htmlFor="industry" value="Industry" />
                 <TextInput
-                  id="dmLevel"
+                  id="industry"
                   required={true}
-                  value={dmLevel}
-                  onChange={(e) => setDmLevel(e.target.value)}
+                  value={industry}
+                  onChange={(e) => setIndustry(e.target.value)}
                 />
               </div>
               <div className="mb-2 block">
-                <Label htmlFor="email" value="Email" />
+                <Label htmlFor="description" value="Description" />
                 <TextInput
-                  id="email"
+                  id="description"
                   required={true}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
               <div className="mb-2 block">
-                <Label htmlFor="phone" value="Phone" />
+                <Label htmlFor="notes" value="Notes" />
                 <TextInput
-                  id="phone"
+                  id="notes"
                   required={true}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
                 />
               </div>
               <Button type="submit">Submit</Button>
@@ -128,4 +116,4 @@ const AddProspectModal = () => {
   );
 };
 
-export default AddProspectModal;
+export default AddAccountModal;

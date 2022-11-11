@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { Spinner } from "flowbite-react";
 import { useParams, useNavigate } from "react-router-dom";
-import Account from "../components/Account";
-import AccountProspects from "../components/AccountProspects";
+import Account from "../components/accounts/Account";
+import AccountProspects from "../components/accounts/AccountProspects";
 import { GET_ACCOUNT } from "../queries/accountQueries";
 
 const AccountPage = () => {

@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { Button, Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
-import { GET_PROSPECTS } from "../queries/prospectQueries";
-import AccountProspectRow from "./ProspectRow";
-import AddProspectModal from "./AddProspectModal";
+import { GET_PROSPECTS } from "../../queries/prospectQueries";
+import ProspectRow from "../prospects/ProspectRow";
+import AddProspectModal from "../prospects/AddProspectModal";
 
 const AccountProspects = ({ id }) => {
   const { loading, error, data } = useQuery(GET_PROSPECTS);
@@ -43,7 +43,7 @@ const AccountProspects = ({ id }) => {
                 </Table.Head>
                 <Table.Body className="divide-y">
                     {accountProspects.map(prospect => (
-                        <AccountProspectRow key={prospect.id} prospect={prospect} />
+                        <ProspectRow key={prospect.id} prospect={prospect} />
                     ))}
                 </Table.Body>
             </Table>) : (

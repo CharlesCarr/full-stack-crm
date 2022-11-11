@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { Spinner, Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
-import { GET_INTERACTIONS } from "../queries/interactionQueries";
-import InteractionRow from "./InteractionRow";
+import { GET_INTERACTIONS } from "../../queries/interactionQueries";
+import InteractionRow from "../interactions/InteractionRow";
 
 const ProspectInteractions = ({ prospect }) => {
   const { loading, error, data } = useQuery(GET_INTERACTIONS);

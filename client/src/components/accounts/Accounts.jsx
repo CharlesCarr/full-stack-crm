@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import AccountRow from "./AccountRow";
-import { GET_ACCOUNTS } from "../queries/accountQueries";
+import { GET_ACCOUNTS } from "../../queries/accountQueries";
 import { Table, Spinner } from "flowbite-react";
 
 const Accounts = () => {
