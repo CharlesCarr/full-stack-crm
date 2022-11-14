@@ -43,10 +43,10 @@ const AddAccountModal = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <Button onClick={() => setShowModal(true)} className="mb-10">
+    <div className="w-1/2 flex justify-end items-center">
+      <Button onClick={() => setShowModal(true)}>
         <div className="flex items-center justify-center w-full">
-          <FaUser className="w-10 h-10" /> <p>Add Account</p>
+          <FaUser className="w-6 h-6 mr-4" /> <p>Add Account</p>
         </div>
       </Button>
       <Modal
