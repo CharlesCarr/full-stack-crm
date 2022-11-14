@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <div className="w-1/6 shadow-inner flex flex-col items-center justify-between py-10">
+    <div className="w-1/6 flex flex-col items-center justify-between py-10 shadow-3xl">
       <div>
         <p className="font-bold text-4xl">CRM</p>
       </div>

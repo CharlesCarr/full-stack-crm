@@ -22,7 +22,14 @@ const Accounts = () => {
   const columns = [
     { name: "id", header: "Id", defaultVisible: false, defaultWidth: 100 },
     { name: "name", header: "Name", defaultFlex: 1, minWidth: 150 },
-    { name: "size", header: "Size", defaultWidth: 100, resizable: false},
+    {
+      name: "size",
+      header: "Size",
+      defaultWidth: 100,
+      resizable: false,
+      render: ({ value }) => parseInt(value),
+      type: 'number',
+    },
     { name: "industry", header: "Industry", defaultFlex: 1, minWidth: 150 },
     {
       name: "description",
@@ -67,7 +74,8 @@ const Accounts = () => {
               className="border rounded-lg pl-3 py-px text-sm"
             />
             <p>
-              <span className="font-bold">Total Accounts: </span>{accounts.length}
+              <span className="font-bold">Total Accounts: </span>
+              {accounts.length}
             </p>
           </div>
 
