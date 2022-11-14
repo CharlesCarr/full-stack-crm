@@ -8,6 +8,7 @@ import ProspectPage from "./pages/ProspectPage";
 import ProspectsPage from "./pages/ProspectsPage";
 import InteractionsPage from "./pages/InteractionsPage";
 import Navigation from "./components/Navigation";
+import TestGridPage from "./pages/TestGridPage";
 
 // for getting rid of warning in console
 const cache = new InMemoryCache({
@@ -48,6 +49,7 @@ function App() {
               <Route path="/prospects" element={<ProspectsPage />} />
               <Route path='/prospects/:id' element={<ProspectPage />} />
               <Route path="/interactions" element={<InteractionsPage />} />
+              {/* <Route path="/test" element={<TestGridPage />} /> */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

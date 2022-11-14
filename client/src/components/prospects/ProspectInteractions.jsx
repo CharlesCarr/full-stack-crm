@@ -1,12 +1,16 @@
 import { useQuery } from "@apollo/client";
-import { Spinner, Table } from "flowbite-react";
-import React, { useEffect, useState } from "react";
+import ReactDataGrid from "@inovua/reactdatagrid-community";
+import "@inovua/reactdatagrid-community/index.css";
+import { Spinner } from "flowbite-react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GET_INTERACTIONS } from "../../queries/interactionQueries";
-import InteractionRow from "../interactions/InteractionRow";
 
 const ProspectInteractions = ({ prospect }) => {
   const { loading, error, data } = useQuery(GET_INTERACTIONS);
   console.log("interaction data", data);
+  const [selected, setSelected] = useState(null);
+  const navigate = useNavigate();
 
   const [prospectInteractions, setProspectInteractions] = useState([]);
   console.log(prospectInteractions);
@@ -27,28 +31,38 @@ const ProspectInteractions = ({ prospect }) => {
     return filteredInteractions;
   };
 
+  const columns = [
+    { name: "id", header: "Id", defaultVisible: false, defaultWidth: 100 },
+    { name: "date", header: "Date", defaultFlex: 1, minWidth: 100 },
+    { name: "type", header: "Type", defaultFlex: 1, minWidth: 100 },
+    { name: "notes", header: "Notes", defaultFlex: 1, minWidth: 100 },
+    { name: "outcome", header: "Outcome", defaultFlex: 1, minWidth: 100 },
+  ];
+
+  const onSelectionChange = useCallback(({ selected }) => {
+    setSelected(selected);
+    navigate(`/interactions/${selected}`);
+    console.log(selected);
+  }, []);
+
   if (loading) return <Spinner />;
   if (error) return <p>Something went wrong...</p>;
-  if (prospectInteractions.length < 1) return <p>No Interactions for this Prospect</p>
+  if (prospectInteractions.length < 1)
+    return <p>No Interactions for this Prospect</p>;
 
   return (
-    <>
-      {!loading && !error && (prospectInteractions.length > 0) && (
-        <Table striped={true}>
-          <Table.Head>
-            <Table.HeadCell>Date</Table.HeadCell>
-            <Table.HeadCell>Type</Table.HeadCell>
-            <Table.HeadCell>Notes</Table.HeadCell>
-            <Table.HeadCell>Outcome</Table.HeadCell>
-          </Table.Head>
-          <Table.Body className="divide-y">
-            {prospectInteractions.map((interaction) => (
-              <InteractionRow key={interaction.id} interaction={interaction} />
-            ))}
-          </Table.Body>
-        </Table>
+    <div className="w-full flex justify-center items-center">
+      {!loading && !error && prospectInteractions.length > 0 && (
+        <ReactDataGrid
+          idProperty="id"
+          selected={selected}
+          onSelectionChange={onSelectionChange}
+          // gridStyle={gridStyle}
+          columns={columns}
+          dataSource={prospectInteractions}
+        />
       )}
-    </>
+    </div>
   );
 };
 
