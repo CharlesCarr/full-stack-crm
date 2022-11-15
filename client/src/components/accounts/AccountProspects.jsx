@@ -53,13 +53,13 @@ const AccountProspects = ({ id }) => {
   if (error) return <p>Something went wrong...</p>;
 
   return (
-    <div className="w-1/3 h-2/3 border-black border-2 flex flex-col items-center justify-start pt-10">
+    <div className="w-1/3 h-2/3 shadow-3xl rounded-2xl flex flex-col items-center justify-start pt-10">
       {!loading && !error && accountProspects && (
         <>
           <h1 className="font-bold mb-4 text-2xl">Prospects</h1>
           <AddProspectModal />
           {accountProspects.length > 0 ? (
-            <div className="w-full flex justify-center items-center mt-5">
+            <div className="w-full flex justify-center items-center mt-5 px-6">
               <ReactDataGrid
                 idProperty="id"
                 selected={selected}

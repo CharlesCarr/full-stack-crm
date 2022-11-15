@@ -17,7 +17,7 @@ const AccountPage = () => {
   if (error) return <p>Something went wrong...</p>;
 
   return (
-    <div className="w-full h-full flex justify-around items-center relative">
+    <div className="w-full h-full flex justify-around items-center relative px-12">
       {!loading && !error && (
         <>
           <button
