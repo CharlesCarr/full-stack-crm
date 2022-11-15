@@ -51,10 +51,10 @@ const AddInteractionModal = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-1/2 flex justify-end items-center">
       <Button onClick={() => setShowModal(true)}>
         <div className="flex items-center justify-center w-full">
-          <FaUser className="w-5 h-5" /> <p>New Interaction</p>
+          <FaUser className="w-6 h-6 mr-4" /> <p>New Interaction</p>
         </div>
       </Button>
       <Modal
