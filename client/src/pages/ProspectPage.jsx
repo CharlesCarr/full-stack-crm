@@ -34,8 +34,11 @@ const ProspectPage = () => {
           <ProspectInfo data={data} />
 
           <div className="w-full pt-6 flex flex-col items-center pb-6 border-b-2 border-black">
-            <p className="font-bold">Interactions</p>
-            <AddInteractionModal />
+            <div className="flex justify-between items-start w-full">
+              <p className="font-bold text-lg">Interactions</p>
+              <AddInteractionModal />
+            </div>
+
             <ProspectInteractions prospect={data.prospect} />
           </div>
 
