@@ -20,6 +20,13 @@ const Interactions = () => {
 
   const columns = [
     { name: "id", header: "Id", defaultVisible: false, defaultWidth: 100 },
+    {
+      name: "prospect",
+      header: "Prospect",
+      defaultFlex: 1,
+      minWidth: 150,
+      render: ({value}) => value.name,
+    },
     { name: "date", header: "Date", defaultFlex: 1, minWidth: 150 },
     {
       name: "type",
@@ -47,7 +54,7 @@ const Interactions = () => {
     setSearch(value);
     const lowerSearch = value.toLowerCase();
     const filteredListItems = data.interactions.filter((int) =>
-      int.name.toLowerCase().includes(lowerSearch)
+      int.prospect.name.toLowerCase().includes(lowerSearch)
     );
     setInteractions(filteredListItems);
   };
@@ -61,13 +68,13 @@ const Interactions = () => {
         <>
           <div className="flex w-full justify-between items-center mb-6">
             <input
-              placeholder="Search By Name"
+              placeholder="Search By Prospect"
               value={search}
               onChange={onSearchChange}
               className="border rounded-lg pl-3 py-px text-sm"
             />
             <p>
-              <span className="font-bold">Total Prospects: </span>
+              <span className="font-bold">Total Interactions: </span>
               {interactions.length}
             </p>
           </div>

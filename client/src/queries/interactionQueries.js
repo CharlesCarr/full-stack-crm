@@ -10,6 +10,7 @@ const GET_INTERACTIONS = gql`
       outcome
       prospect {
         id
+        name
       }
     }
   }
