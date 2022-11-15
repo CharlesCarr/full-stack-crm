@@ -23,7 +23,7 @@ const ProspectPage = () => {
   if (error) return <p>Something went wrong...</p>;
 
   return (
-    <div className="w-3/4 h-2/3 border border-black flex flex-col justify-start items-center py-12 px-14">
+    <div className="w-3/4 h-2/3 shadow-3xl rounded-2xl flex flex-col justify-start items-center py-12 px-14">
       {!loading && !error && (
         <>
           <EditProspectModal
