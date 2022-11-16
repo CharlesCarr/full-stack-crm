@@ -16,7 +16,7 @@ const DeleteProspectButton = ({ prospectId, accountId }) => {
   return (
     <button
       onClick={deleteProspect}
-      className="border border-black px-5 py-2 rounded-xl flex items-center justify-center"
+      className="border border-red-600 text-red-600 px-5 py-2 rounded-xl flex items-center justify-center"
     >
       <FaTrash className="w-4 h-4 mr-2" />
       Delete Prospect

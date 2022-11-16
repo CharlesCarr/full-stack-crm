@@ -2,7 +2,7 @@ import React from "react";
 
 const Account = ({ data }) => {
   return (
-    <div className="w-1/3 h-2/3 shadow-3xl rounded-2xl flex flex-col items-center justify-center px-6">
+    <div className="w-1/2 h-2/3 shadow-3xl rounded-2xl flex flex-col items-center justify-center px-6">
       <div className="flex w-full h-1/3 border-b-2 border-black justify-between items-end pb-3">
         <div>
           <h1 className="text-2xl font-bold mb-2 border-b-2 border-black">{data.account.name}</h1>

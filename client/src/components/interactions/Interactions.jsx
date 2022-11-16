@@ -44,11 +44,11 @@ const Interactions = () => {
 
   const gridStyle = { minHeight: 350, border: "none" };
 
-  const onSelectionChange = useCallback(({ selected }) => {
-    setSelected(selected);
-    navigate(`/interactions/${selected}`);
-    console.log(selected);
-  }, []);
+  // const onSelectionChange = useCallback(({ selected }) => {
+  //   setSelected(selected);
+  //   navigate(`/interactions/${selected}`);
+  //   console.log(selected);
+  // }, []);
 
   const onSearchChange = ({ target: { value } }) => {
     setSearch(value);
@@ -83,7 +83,7 @@ const Interactions = () => {
             <ReactDataGrid
               idProperty="id"
               selected={selected}
-              onSelectionChange={onSelectionChange}
+              // onSelectionChange={onSelectionChange}
               style={gridStyle}
               columns={columns}
               dataSource={interactions}

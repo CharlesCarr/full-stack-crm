@@ -43,7 +43,7 @@ function App() {
           <Navigation />
           <div className="w-5/6 h-screen flex flex-col justify-center items-center">
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              {/* <Route path="/" element={<Dashboard />} /> */}
               <Route path="/accounts" element={<AccountsPage />} />
               <Route path="/accounts/:id" element={<AccountPage />} />
               <Route path="/prospects" element={<ProspectsPage />} />

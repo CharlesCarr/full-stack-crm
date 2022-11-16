@@ -9,7 +9,7 @@ const Navigation = () => {
 
       <div className="flex flex-col justify-between items-center h-1/2 font-bold">
         {/* Dashboard Icon */}
-        <Link to="/">DASHBOARD</Link>
+        {/* <Link to="/">DASHBOARD</Link> */}
         {/* Accounts Icon */}
         <Link to="/accounts">ACCOUNTS</Link>
         {/* Prospects Icon */}
@@ -20,7 +20,7 @@ const Navigation = () => {
 
       <div>
         {/* Settings Icon or User Profile Icon */}
-        <p>S</p>
+        {/* <p>S</p> */}
       </div>
     </div>
   );

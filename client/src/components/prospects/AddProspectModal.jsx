@@ -95,13 +95,16 @@ const AddProspectModal = () => {
                 />
               </div>
               <div className="mb-2 block">
-                <Label htmlFor="dmLevel" value="DM Level" />
-                <TextInput
-                  id="dmLevel"
-                  required={true}
-                  value={dmLevel}
+                <select
+                  name="dmLevel"
+                  className="w-full focus:border-none"
                   onChange={(e) => setDmLevel(e.target.value)}
-                />
+                >
+                  <option value="select">Select DM Level</option>
+                  <option value="gk">Gatekeeper</option>
+                  <option value="influencer">Influencer</option>
+                  <option value="dm">Decision Maker</option>
+                </select>
               </div>
               <div className="mb-2 block">
                 <Label htmlFor="email" value="Email" />

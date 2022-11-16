@@ -39,6 +39,8 @@ const ProspectInteractions = ({ prospect }) => {
     { name: "outcome", header: "Outcome", defaultFlex: 1, minWidth: 100 },
   ];
 
+  const gridStyle = { height: 100, minHeight: 150, border: "none" };
+
   const onSelectionChange = useCallback(({ selected }) => {
     setSelected(selected);
     navigate(`/interactions/${selected}`);
@@ -57,7 +59,7 @@ const ProspectInteractions = ({ prospect }) => {
           idProperty="id"
           selected={selected}
           onSelectionChange={onSelectionChange}
-          // gridStyle={gridStyle}
+          gridStyle={gridStyle}
           columns={columns}
           dataSource={prospectInteractions}
         />

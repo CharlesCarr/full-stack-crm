@@ -26,11 +26,11 @@ const ProspectPage = () => {
     <div className="w-3/4 h-2/3 shadow-3xl rounded-2xl flex flex-col justify-start items-center py-12 px-14">
       {!loading && !error && (
         <>
-          <EditProspectModal
+          {/* <EditProspectModal
             prospect={data}
             showEditModal={showEditModal}
             setShowEditModal={setShowEditModal}
-          />
+          /> */}
           <ProspectInfo data={data} />
 
           <div className="w-full pt-6 flex flex-col items-center pb-6 border-b-2 border-black">
@@ -43,12 +43,12 @@ const ProspectPage = () => {
           </div>
 
           <div className="flex pt-6 justify-between items-end w-full">
-            <button
+            {/* <button
               className="border border-black px-5 py-2 rounded-xl"
               onClick={() => setShowEditModal(true)}
             >
               Edit Prospect
-            </button>
+            </button> */}
             <DeleteProspectButton
               prospectId={data.prospect.id}
               accountId={data.prospect.account.id}
