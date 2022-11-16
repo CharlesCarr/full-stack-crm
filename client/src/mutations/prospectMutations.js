@@ -26,22 +26,8 @@ const DELETE_PROSPECT = gql`
 `;
 
 const UPDATE_PROSPECT = gql`
-  mutation UpdateProspect(
-    $id: ID!
-    $name: String!
-    $position: String!
-    $dmLevel: DMLevelUpdate!
-    $email: String!
-    $phone: String!
-  ) {
-    updateProject(
-      id: $id
-      name: $name
-      position: $position
-      dmLevel: $dmLevel
-      email: $email
-      phone: $phone
-    ) {
+  mutation updateProspect($id: ID!, $name: String!, $position: String!, $dmLevel: DMLevelUpdate!, $email: String!, $phone: String!) {
+    updateProject(id: $id, name: $name, position: $position, dmLevel: $dmLevel, email: $email, phone: $phone) {
       id
       name
       position

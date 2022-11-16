@@ -11,6 +11,7 @@ const AddProspectModal = () => {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [dmLevel, setDmLevel] = useState("");
+  console.log("dmLevelAdd", dmLevel);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -43,6 +44,7 @@ const AddProspectModal = () => {
 
     // dmLevel is enum so needs to be "dm" or "influencer"
     // TO DO: add this with a select / options
+    console.log(dmLevel);
     addProspect(name, position, dmLevel, email, phone, accountId);
 
     setName("");

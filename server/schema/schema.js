@@ -187,6 +187,7 @@ const mutation = new GraphQLObjectType({
             values: {
               dm: { value: "Decision Maker" },
               influencer: { value: "Influencer" },
+              gk: { value: "Gatekeeper"},
             },
           }),
           defaultValue: "Decision Maker",
@@ -225,18 +226,19 @@ const mutation = new GraphQLObjectType({
         id: { type: GraphQLNonNull(GraphQLID) },
         name: { type: GraphQLString },
         position: { type: GraphQLString },
-        dmLevel: {
+        dmLevel: { 
           type: new GraphQLEnumType({
             name: "DMLevelUpdate",
             values: {
               dm: { value: "Decision Maker" },
               influencer: { value: "Influencer" },
+              gk: { value: "Gatekeeper" },
             },
           }),
         },
         email: { type: GraphQLString },
         phone: { type: GraphQLString },
-        accountId: { type: GraphQLID },
+        // accountId: { type: GraphQLID },
       },
       resolve(parent, args) {
         return Prospect.findByIdAndUpdate(
