@@ -16,7 +16,7 @@ Sales prospecting web application with different routes and pages for sales prof
 - Styling with TailwindCSS utility classes
 
 #### Challenges
-After completing a smaller project management application to learn GraphQL and Apollo I decided to build this to take my learning a step further.
+After completing a smaller project management application to learn GraphQL and Apollo I decided to build this to take my learning a step further. Good challenge to learn a new technology.
 
 ## Flow of Application / How to Navigate
 
